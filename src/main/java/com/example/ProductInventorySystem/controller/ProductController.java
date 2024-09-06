@@ -53,7 +53,7 @@ public class ProductController {
     }
 
     @GetMapping("/checkStockLevels")
-    public void checkStockLevels() {
-        productService.checkStockLevels();
+    public String checkStockLevels(@RequestParam int stockThreshold) {
+        return productService.checkStockLevels(stockThreshold);
     }
 }

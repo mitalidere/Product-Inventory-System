@@ -11,4 +11,9 @@ public class GlobalExceptionHandler {
     public ResponseEntity<String> handleProductNotFoundException(ProductNotFoundException productNotFoundException) {
         return new ResponseEntity<>(productNotFoundException.getMessage(), HttpStatus.NOT_FOUND);
     }
+
+    @ExceptionHandler(ProductsInStockException.class)
+    public ResponseEntity<String> handleProductsInStockException(ProductsInStockException productsInStockException) {
+        return new ResponseEntity<>(productsInStockException.getMessage(), HttpStatus.OK);
+    }
 }

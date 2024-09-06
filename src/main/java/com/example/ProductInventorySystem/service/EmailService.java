@@ -21,7 +21,7 @@ public class EmailService {
     @Autowired
     private TemplateEngine templateEngine;
 
-    public void sendLowStockNotification(String to, List<Product> lowStockProducts, int threshold) {
+    public String sendLowStockNotification(String to, List<Product> lowStockProducts, int threshold) {
         Context context = new Context();
         context.setVariable("products", lowStockProducts);
         context.setVariable("threshold", threshold);
@@ -38,5 +38,6 @@ public class EmailService {
         } catch (MessagingException e) {
             throw new RuntimeException("Failed to send email", e);
         }
+        return "Email sent successfully";
     }
 }
