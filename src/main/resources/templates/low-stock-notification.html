@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Low Stock Notification</title>
+</head>
+<body>
+<h1>Low Stock Alert</h1>
+<p>Dear Admin,</p>
+<p>The following products are running low on stock:</p>
+<table border="1" style="width: 100%; border-collapse: collapse;">
+    <thead>
+    <tr>
+        <th>Product Name</th>
+        <th>Current Quantity</th>
+        <th>Threshold</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="product : ${products}">
+        <td th:text="${product.name}"></td>
+        <td th:text="${product.quantity}"></td>
+        <td th:text="${threshold}"></td>
+    </tr>
+    </tbody>
+</table>
+<p>Please take necessary action to restock.</p>
+</body>
+</html>
